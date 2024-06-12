@@ -7,56 +7,66 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
+        table {
+            width: 100%
+        }
+
         td,
         th {
             border: 1px solid black;
             padding: 8px;
         }
+
+        .container {
+            width: 1000px;
+            max-width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
     </style>
 </head>
 
 <body>
-    <table>
-        <tr>
-            <th>名前</th>
-            <th>アンケート１</th>
-            <th>アンケート２</th>
-        </tr>
-        @foreach ($users as $user)
+    <div class="container">
+        <table>
             <tr>
-                <td>
-                    {{ $user->name }}
-                </td>
-                <td>
-
-                    @if ($user->surveyResponses->contains('survey_type', 'survey1'))
-                        回答済み
-                    @else
-                        <form action="{{ route('admin.send') }}" method="POST">
-                            @csrf
-                            <input type="hidden" name="line_id" value='{{ $user->line_id }}'>
-                            <input type="hidden" name="ancate_type" value="1">
-                            <button>アンケート１を送る</button>
-                        </form>
-                    @endif
-                </td>
-                <td>
-
-                    @if ($user->surveyResponses->contains('survey_type', 'survey2'))
-                        回答済み
-                    @else
-                        <form action="{{ route('admin.send') }}" method="POST">
-                            @csrf
-                            <input type="hidden" name="line_id" value='{{ $user->line_id }}'>
-                            <input type="hidden" name="ancate_type" value="2">
-                            <button>アンケート2を送る</button>
-                        </form>
-                    @endif
-
-                </td>
+                <th>名前</th>
+                <th>アンケート１</th>
+                <th>アンケート２</th>
             </tr>
-        @endforeach
-    </table>
+            @foreach ($users as $user)
+                <tr>
+                    <td>
+                        {{ $user->name }}
+                    </td>
+                    <td>
+                        @if ($user->surveyResponses->contains('survey_type', 'survey1'))
+                            回答済み
+                        @else
+                            <form action="{{ route('admin.send') }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="line_id" value='{{ $user->line_id }}'>
+                                <input type="hidden" name="ancate_type" value="1">
+                                <button>アンケート１を送る</button>
+                            </form>
+                        @endif
+                    </td>
+                    <td>
+                        @if ($user->surveyResponses->contains('survey_type', 'survey2'))
+                            回答済み
+                        @else
+                            <form action="{{ route('admin.send') }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="line_id" value='{{ $user->line_id }}'>
+                                <input type="hidden" name="ancate_type" value="2">
+                                <button>アンケート2を送る</button>
+                            </form>
+                        @endif
+                    </td>
+                </tr>
+            @endforeach
+        </table>
+    </div>
 </body>
 
 </html>
