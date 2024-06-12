@@ -123,7 +123,7 @@
                         @endphp
                         @for ($i = 1; $i <= 5; $i++)
                             @php
-                                $total_num += $answers;
+                                $total_num += $answers[$i];
                             @endphp
                             <td>{{ $answers[$i] }}</td>
                         @endfor
