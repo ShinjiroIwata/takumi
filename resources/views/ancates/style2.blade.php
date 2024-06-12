@@ -87,6 +87,7 @@
     <form action="{{ route('ancate2.store') }}" method="post" class="rating">
         @csrf
         <input type="hidden" name="line_id" value="{{ $user->line_id }}">
+        <input type="hidden" name="user_id" value="{{ $user->id }}">
         <div class="star-area">
             <div class="star-area-title">2回目話やすさはいかがでしたか？</div>
             <div class="star-block">

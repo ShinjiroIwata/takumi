@@ -27,6 +27,7 @@ class AncateController extends Controller
         $answer4 = $request->rating4;
         $answer5 = $request->rating5;
         $line_id = $request->line_id;
+        $user_id = $request->user_id;
 
         $answers = [
             1 => $answer1,
@@ -39,6 +40,7 @@ class AncateController extends Controller
 
             SurveyResponse::updateOrCreate(
                 [
+                    'user_id' => $user_id,
                     'clinic_id' => 1,
                     'line_id' => $line_id,
                     'survey_type' => 'survey1',
@@ -99,6 +101,7 @@ class AncateController extends Controller
         $answer4 = $request->rating4;
         $answer5 = $request->rating5;
         $line_id = $request->line_id;
+        $user_id = $request->user_id;
 
         $answers = [
             1 => $answer1,
@@ -111,6 +114,7 @@ class AncateController extends Controller
 
             SurveyResponse::updateOrCreate(
                 [
+                    'user_id' => $user_id,
                     'clinic_id' => 1,
                     'user_id' => $line_id,
                     'survey_type' => 'survey2',
