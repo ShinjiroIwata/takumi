@@ -269,6 +269,19 @@
             </table>
         </div>
 
+        @php
+            $total_answer = 0;
+        @endphp
+        @foreach ($users as $user)
+            @foreach ($user->surveyResponses as $data)
+                @php
+                    $total_answer += $data->answer;
+                @endphp
+            @endforeach
+        @endforeach
+        {{ $total_answer }}
+
+
     </div>
 </body>
 
