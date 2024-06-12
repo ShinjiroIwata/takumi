@@ -48,7 +48,7 @@
                         <form action="{{ route('admin.send') }}" method="POST">
                             @csrf
                             <input type="hidden" name="line_id" value='{{ $user->line_id }}'>
-                            <input type="hidden" name="ancate_type" value="1">
+                            <input type="hidden" name="ancate_type" value="2">
                             <button>アンケート2を送る</button>
                         </form>
                     @endif
