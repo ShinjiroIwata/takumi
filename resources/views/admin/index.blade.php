@@ -21,11 +21,6 @@
             <tr>
                 <td>
                     {{ $user->name }}
-                    @if ($user->surveyResponses->contains('survey_type', 'survey1'))
-                        {{ 'true' }}
-                    @else
-                        {{ 'false' }}
-                    @endif
                 </td>
                 <td>
 
