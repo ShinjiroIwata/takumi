@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Log;
@@ -10,7 +11,6 @@ class LineMessagingController extends Controller
 {
     public function sendNotification(Request $request)
     {
-        $userId = 'Ub9d0df0a71679d127a5cf7482555df9a'; // リクエストからユーザーIDを取得
         $messageType = 'flex'; // メッセージタイプ（textまたはflex）をリクエストから取得
         $messageText = 'test'; // テキストメッセージ
         $httpClient = new Client();
@@ -74,16 +74,21 @@ class LineMessagingController extends Controller
             ];
         }
 
-        $response = $httpClient->post('https://api.line.me/v2/bot/message/push', [
-            'headers' => [
-                'Authorization' => 'Bearer ' . $channelAccessToken,
-                'Content-Type' => 'application/json',
-            ],
-            'json' => [
-                'to' => $userId,
-                'messages' => $message,
-            ],
-        ]);
+        $users = User::all();
+        foreach ($users as $user) {
+            $userId = $user->line_id;
+            $response = $httpClient->post('https://api.line.me/v2/bot/message/push', [
+                'headers' => [
+                    'Authorization' => 'Bearer ' . $channelAccessToken,
+                    'Content-Type' => 'application/json',
+                ],
+                'json' => [
+                    'to' => $userId,
+                    'messages' => $message,
+                ],
+            ]);
+        }
+
 
         if ($response->getStatusCode() != 200) {
             Log::error('Failed to send message: ' . $response->getBody());

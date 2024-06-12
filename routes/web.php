@@ -19,17 +19,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-
-Route::get('/send-line-notification', [LineMessagingController::class, 'sendNotification']);
+// LINE系
+Route::get('login', [LoginController::class, 'redirectToLine'])->name('login');
+Route::get('line/callback', [LoginController::class, 'handleLineCallback']);
 Route::post('/webhook', [LineWebhookController::class, 'webhook']);
 
 
+// 管理者のみ実行可能
+Route::get('/send-line-notification', [LineMessagingController::class, 'sendNotification']);
 
-Route::get('login', [LoginController::class, 'redirectToLine'])->name('login');
-Route::get('line/callback', [LoginController::class, 'handleLineCallback']);
 
-
+// ログインしたユーザーのみ
 Route::middleware(['auth'])->group(function () {
     Route::get('/', [AncateController::class, 'index'])->name('ancate.index');
     Route::post('/store', [AncateController::class, 'store'])->name('ancate.store');
