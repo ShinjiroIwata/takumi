@@ -21,7 +21,11 @@
             <tr>
                 <td>
                     {{ $user->name }}
-                    {{ $user->surveyResponses }}
+                    @if ($user->surveyResponses->contains('survey_type', 'survey1'))
+                        {{ 'true' }}
+                    @else
+                        {{ 'false' }}
+                    @endif
                 </td>
                 <td>
                     <form action="{{ route('admin.send') }}" method="POST">
