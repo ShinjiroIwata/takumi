@@ -37,8 +37,9 @@
             <tr>
                 <th>名前</th>
 
-                <th>アンケート１</th>
-                <th>アンケート２</th>
+                <th>カウンセリングアンケート</th>
+                <th>施術アンケート</th>
+                <th>術後アンケート</th>
             </tr>
             @foreach ($users as $user)
                 <tr>
@@ -66,6 +67,18 @@
                                 <input type="hidden" name="line_id" value='{{ $user->line_id }}'>
                                 <input type="hidden" name="ancate_type" value="2">
                                 <button>アンケート2を送る</button>
+                            </form>
+                        @endif
+                    </td>
+                    <td>
+                        @if ($user->surveyResponses->contains('survey_type', 'survey3'))
+                            回答済み
+                        @else
+                            <form action="{{ route('admin.send') }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="line_id" value='{{ $user->line_id }}'>
+                                <input type="hidden" name="ancate_type" value="3">
+                                <button>アンケートを送る</button>
                             </form>
                         @endif
                     </td>
