@@ -90,11 +90,11 @@
             <table>
                 <tr>
                     <th>名前</th>
-                    <th>Q1:テスト</th>
-                    <th>Q2:テスト</th>
-                    <th>Q3:テスト</th>
-                    <th>Q4:テスト</th>
-                    <th>Q5:テスト</th>
+                    <th>Q1</th>
+                    <th>Q2</th>
+                    <th>Q3</th>
+                    <th>Q4</th>
+                    <th>Q5</th>
                     <th>ユーザー平均</th>
                 </tr>
                 @php
@@ -151,11 +151,11 @@
             <table>
                 <tr>
                     <th>名前</th>
-                    <th>Q1:テスト</th>
-                    <th>Q2:テスト</th>
-                    <th>Q3:テスト</th>
-                    <th>Q4:テスト</th>
-                    <th>Q5:テスト</th>
+                    <th>Q1</th>
+                    <th>Q2</th>
+                    <th>Q3</th>
+                    <th>Q4</th>
+                    <th>Q5</th>
                     <th>ユーザー平均</th>
                 </tr>
                 @php
@@ -212,11 +212,11 @@
             <table>
                 <tr>
                     <th>名前</th>
-                    <th>Q1:テスト</th>
-                    <th>Q2:テスト</th>
-                    <th>Q3:テスト</th>
-                    <th>Q4:テスト</th>
-                    <th>Q5:テスト</th>
+                    <th>Q1</th>
+                    <th>Q2</th>
+                    <th>Q3</th>
+                    <th>Q4</th>
+                    <th>Q5</th>
                     <th>ユーザー平均</th>
                 </tr>
                 @php
