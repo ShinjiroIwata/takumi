@@ -17,6 +17,11 @@
 
 <body>
     <table>
+        <tr>
+            <th>名前</th>
+            <th>アンケート１</th>
+            <th>アンケート２</th>
+        </tr>
         @foreach ($users as $user)
             <tr>
                 <td>
