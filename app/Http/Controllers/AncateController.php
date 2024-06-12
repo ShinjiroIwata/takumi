@@ -73,7 +73,10 @@ class AncateController extends Controller
             Log::error('Failed to send message: ' . $response->getBody());
         }
 
-        return $response->getStatusCode() == 200;
+        if ($response->getStatusCode() == 200) {
+            return view('ancates.thanks');
+        } else {
+        }
 
         if ($response) {
             return response()->json(['status' => 'success'], 200);

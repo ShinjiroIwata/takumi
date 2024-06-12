@@ -31,6 +31,6 @@ Route::get('line/callback', [LoginController::class, 'handleLineCallback']);
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/', [AncateController::class, 'index'])->name('ancate.index');
-    Route::post('/', [AncateController::class, 'store'])->name('ancate.store');
+    Route::post('/store', [AncateController::class, 'store'])->name('ancate.store');
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 });
