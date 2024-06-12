@@ -91,7 +91,7 @@
                 </tr>
             @endforeach
         </table>
-        <div class="block">
+        {{-- <div class="block">
             <div>カウンセリングアンケート</div>
             <table>
                 <tr>
@@ -280,10 +280,7 @@
             $user_num = 0;
         @endphp
         @foreach ($users as $user)
-            @if (
-                $user->surveyResponses->contains('survey_type', 'survey1') &&
-                    $user->surveyResponses->contains('survey_type', 'survey2') &&
-                    $user->surveyResponses->contains('survey_type', 'survey3'))
+            @if ($user->surveyResponses->contains('survey_type', 'survey1') && $user->surveyResponses->contains('survey_type', 'survey2') && $user->surveyResponses->contains('survey_type', 'survey3'))
                 @php
                     $user_num += 1;
                 @endphp
@@ -295,7 +292,7 @@
             @endif
         @endforeach
         <div class="answer_sum">{{ round(($total_answer / $user_num / 75) * 100, 2) }}点/100点</div>
-
+ --}}
 
     </div>
 </body>
