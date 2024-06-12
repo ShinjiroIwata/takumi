@@ -19,7 +19,7 @@
         }
 
         .container {
-            width: 1000px;
+            width: 1200px;
             max-width: 100%;
             margin-left: auto;
             margin-right: auto;
@@ -90,11 +90,11 @@
             <table>
                 <tr>
                     <th>名前</th>
-                    <th>Q1:⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎</th>
-                    <th>Q2:⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎</th>
-                    <th>Q3:⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎</th>
-                    <th>Q4:⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎</th>
-                    <th>Q5:⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎</th>
+                    <th>Q1:テスト</th>
+                    <th>Q2:テスト</th>
+                    <th>Q3:テスト</th>
+                    <th>Q4:テスト</th>
+                    <th>Q5:テスト</th>
                     <th>ユーザー平均</th>
                 </tr>
                 @php
@@ -132,9 +132,17 @@
                 @endforeach
                 <tr>
                     <td>平均</td>
+
+                    @php
+                        $total_num = 0;
+                    @endphp
                     @for ($i = 1; $i <= 5; $i++)
+                        @php
+                            $total_num += $totalAnswers1[$i];
+                        @endphp
                         <td>{{ $countAnswers1[$i] > 0 ? $totalAnswers1[$i] / $countAnswers1[$i] : 0 }}</td>
                     @endfor
+                    <td>{{ $total_num / 5 }}</td>
                 </tr>
             </table>
         </div>
