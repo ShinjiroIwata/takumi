@@ -164,7 +164,7 @@ class AncateController extends Controller
     public function ancate3()
     {
         $user = Auth::user();
-        return view('ancates.style2', compact('user'));
+        return view('ancates.style3', compact('user'));
     }
     public function ancate3store(Request $request)
     {
