@@ -137,6 +137,33 @@
                 @endforeach
             </table>
         </div>
+
+
+        <div>
+            <div>アンケート3の回答</div>
+            <table>
+                <tr>
+                    <th>名前</th>
+                    <th>Q1:⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎</th>
+                    <th>Q2:⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎</th>
+                    <th>Q3:⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎</th>
+                    <th>Q4:⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎</th>
+                    <th>Q5:⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎</th>
+                </tr>
+                @foreach ($users as $user)
+                    <tr>
+                        <td>
+                            {{ $user->name }}
+                        </td>
+                        @foreach ($user->surveyResponses as $data)
+                            @if ($data->survey_type == 'survey3')
+                                <td>{{ $data->answer }}</td>
+                            @endif
+                        @endforeach
+                    </tr>
+                @endforeach
+            </table>
+        </div>
     </div>
 </body>
 
