@@ -116,7 +116,7 @@ class AncateController extends Controller
                 [
                     'user_id' => $user_id,
                     'clinic_id' => 1,
-                    'user_id' => $line_id,
+                    'line_id' => $line_id,
                     'survey_type' => 'survey2',
                     'question_number' => $currentQuestion,
                 ],
