@@ -112,7 +112,7 @@
             </table>
         </div>
 
-        <div>
+        <div class="block">
             <div>アンケート２の回答</div>
             <table>
                 <tr>
