@@ -23,6 +23,11 @@
             margin-left: auto;
             margin-right: auto;
         }
+
+        .block {
+            margin-top: 24px;
+            margin-bottom: 24px;
+        }
     </style>
 </head>
 
@@ -67,53 +72,57 @@
                 </tr>
             @endforeach
         </table>
-        <div>アンケート１の回答</div>
-        <table>
-            <tr>
-                <th>名前</th>
-                <th>Q1:⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎</th>
-                <th>Q2:⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎</th>
-                <th>Q3:⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎</th>
-                <th>Q4:⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎</th>
-                <th>Q5:⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎</th>
-            </tr>
-            @foreach ($users as $user)
+        <div class="block">
+            <div>アンケート１の回答</div>
+            <table>
                 <tr>
-                    <td>
-                        {{ $user->name }}
-                    </td>
-                    @foreach ($user->surveyResponses as $data)
-                        @if ($data->survey_type == 'survey1')
-                            <td>{{ $data->answer }}</td>
-                        @endif
-                    @endforeach
+                    <th>名前</th>
+                    <th>Q1:⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎</th>
+                    <th>Q2:⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎</th>
+                    <th>Q3:⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎</th>
+                    <th>Q4:⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎</th>
+                    <th>Q5:⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎</th>
                 </tr>
-            @endforeach
-        </table>
+                @foreach ($users as $user)
+                    <tr>
+                        <td>
+                            {{ $user->name }}
+                        </td>
+                        @foreach ($user->surveyResponses as $data)
+                            @if ($data->survey_type == 'survey1')
+                                <td>{{ $data->answer }}</td>
+                            @endif
+                        @endforeach
+                    </tr>
+                @endforeach
+            </table>
+        </div>
 
-        <div>アンケート２の回答</div>
-        <table>
-            <tr>
-                <th>名前</th>
-                <th>Q1:⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎</th>
-                <th>Q2:⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎</th>
-                <th>Q3:⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎</th>
-                <th>Q4:⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎</th>
-                <th>Q5:⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎</th>
-            </tr>
-            @foreach ($users as $user)
+        <div>
+            <div>アンケート２の回答</div>
+            <table>
                 <tr>
-                    <td>
-                        {{ $user->name }}
-                    </td>
-                    @foreach ($user->surveyResponses as $data)
-                        @if ($data->survey_type == 'survey2')
-                            <td>{{ $data->answer }}</td>
-                        @endif
-                    @endforeach
+                    <th>名前</th>
+                    <th>Q1:⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎</th>
+                    <th>Q2:⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎</th>
+                    <th>Q3:⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎</th>
+                    <th>Q4:⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎</th>
+                    <th>Q5:⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎</th>
                 </tr>
-            @endforeach
-        </table>
+                @foreach ($users as $user)
+                    <tr>
+                        <td>
+                            {{ $user->name }}
+                        </td>
+                        @foreach ($user->surveyResponses as $data)
+                            @if ($data->survey_type == 'survey2')
+                                <td>{{ $data->answer }}</td>
+                            @endif
+                        @endforeach
+                    </tr>
+                @endforeach
+            </table>
+        </div>
     </div>
 </body>
 
