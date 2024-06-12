@@ -9,10 +9,14 @@ use Illuminate\Support\Facades\Log;
 
 class LineMessagingController extends Controller
 {
+    public function index()
+    {
+        return view('admin.index');
+    }
     public function sendNotification(Request $request)
     {
         // 動的に変更できるように
-        $ancateType = 2;
+        $ancateType = $request->ancate_type;
 
         $messageType = 'flex'; // メッセージタイプ（textまたはflex）をリクエストから取得
         $messageText = 'test'; // テキストメッセージ

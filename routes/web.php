@@ -26,7 +26,8 @@ Route::post('/webhook', [LineWebhookController::class, 'webhook']);
 
 
 // 管理者のみ実行可能
-Route::get('/send-line-notification', [LineMessagingController::class, 'sendNotification']);
+Route::get('/admin', [LineMessagingController::class, 'index']);
+Route::post('/admin/send-line-notification', [LineMessagingController::class, 'sendNotification'])->name('admin.send');
 
 
 // ログインしたユーザーのみ
