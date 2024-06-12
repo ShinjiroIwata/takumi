@@ -278,16 +278,12 @@
                 $user->surveyResponses->contains('survey_type', 'survey1') &&
                     $user->surveyResponses->contains('survey_type', 'survey2') &&
                     $user->surveyResponses->contains('survey_type', 'survey3'))
+                @php
+                    $user_num += 1;
+                @endphp
                 @foreach ($user->surveyResponses as $data)
                     @php
-                        if (
-                            $user->surveyResponses->contains('survey_type', 'survey1') &&
-                            $user->surveyResponses->contains('survey_type', 'survey2') &&
-                            $user->surveyResponses->contains('survey_type', 'survey3')
-                        ) {
-                            $user_num += 1;
-                            $total_answer += $data->answer;
-                        }
+                        $total_answer += $data->answer;
                     @endphp
                 @endforeach
             @endif
