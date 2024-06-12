@@ -10,10 +10,12 @@
 
 <body>
     <form action="{{ route('admin.send') }}" method="POST">
+        @csrf
         <input type="hidden" name="ancate_type" value="1">
         <button>アンケート１を全員へ送る</button>
     </form>
     <form action="{{ route('admin.send') }}" method="POST">
+        @csrf
         <input type="hidden" name="ancate_type" value="2">
         <button>アンケート２を全員へ送る</button>
     </form>
