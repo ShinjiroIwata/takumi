@@ -10,8 +10,9 @@ class SurveyResponse extends Model
     use HasFactory;
 
     protected $fillable = [
-        'clinic_id',
         'user_id',
+        'clinic_id',
+        'line_id',
         'survey_type',
         'question_number',
         'answer',

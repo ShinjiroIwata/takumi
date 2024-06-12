@@ -40,7 +40,7 @@ class AncateController extends Controller
             SurveyResponse::updateOrCreate(
                 [
                     'clinic_id' => 1,
-                    'user_id' => $line_id,
+                    'line_id' => $line_id,
                     'survey_type' => 'survey1',
                     'question_number' => $currentQuestion,
                 ],
