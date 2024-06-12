@@ -128,6 +128,7 @@
                         <td>
                             {{ $user->name }}
                         </td>
+                        {{ $user->surveyResponses }}
                         @foreach ($user->surveyResponses as $data)
                             @if ($data->survey_type == 'survey2')
                                 <td>{{ $data->answer }}</td>
