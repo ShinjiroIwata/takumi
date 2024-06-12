@@ -11,7 +11,9 @@ class LineMessagingController extends Controller
 {
     public function sendNotification(Request $request)
     {
-        $ancateType = 1;
+        // 動的に変更できるように
+        $ancateType = 2;
+
         $messageType = 'flex'; // メッセージタイプ（textまたはflex）をリクエストから取得
         $messageText = 'test'; // テキストメッセージ
         $httpClient = new Client();
