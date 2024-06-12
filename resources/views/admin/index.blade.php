@@ -29,6 +29,12 @@
             margin-top: 24px;
             margin-bottom: 24px;
         }
+
+        .answer_sum {
+            margin-top: 40px;
+            text-align: right;
+            font-size: 40px;
+        }
     </style>
 </head>
 
@@ -288,7 +294,7 @@
                 @endforeach
             @endif
         @endforeach
-        {{ $total_answer / $user_num }}
+        <div class="answer_sum">{{ ($total_answer / $user_num / 75) * 100 }}点</div>
 
 
     </div>
