@@ -31,6 +31,7 @@
         <table>
             <tr>
                 <th>名前</th>
+
                 <th>アンケート１</th>
                 <th>アンケート２</th>
             </tr>
@@ -69,8 +70,9 @@
         <table>
             <tr>
                 <th>名前</th>
-                <th>アンケート１</th>
-                <th>アンケート２</th>
+                @foreach ($users[0]->surveyResponses as $i => $survey)
+                    <th>Q{{ $i + 1 }}</th>
+                @endforeach
             </tr>
             @foreach ($users as $user)
                 <tr>
