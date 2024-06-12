@@ -70,18 +70,23 @@
         <table>
             <tr>
                 <th>名前</th>
-                @foreach ($users[0]->surveyResponses as $i => $survey)
-                    <th>Q{{ $i + 1 }}</th>
-                @endforeach
+                <th>Q1:⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎</th>
+                <th>Q2:⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎</th>
+                <th>Q3:⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎</th>
+                <th>Q4:⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎</th>
+                <th>Q5:⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎</th>
+                <th>Q6:⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎</th>
+                <th>Q7:⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎</th>
+                <th>Q8:⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎</th>
+                <th>Q9:⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎</th>
             </tr>
             @foreach ($users as $user)
                 <tr>
                     <td>
                         {{ $user->name }}
                     </td>
-                    {{ $user->surveyResponses }}
                     @foreach ($user->surveyResponses as $data)
-                        <td>{{ $data }}</td>
+                        <td>{{ $data->answer }}</td>
                     @endforeach
                 </tr>
             @endforeach
