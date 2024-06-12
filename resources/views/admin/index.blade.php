@@ -95,6 +95,7 @@
                     <th>Q3:⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎</th>
                     <th>Q4:⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎</th>
                     <th>Q5:⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎</th>
+                    <th>ユーザー平均</th>
                 </tr>
                 @php
                     $totalAnswers1 = ['1' => 0, '2' => 0, '3' => 0, '4' => 0, '5' => 0];
@@ -117,9 +118,16 @@
                                 @endphp
                             @endif
                         @endforeach
+                        @php
+                            $total_num = 0;
+                        @endphp
                         @for ($i = 1; $i <= 5; $i++)
+                            @php
+                                $total_num += $answers;
+                            @endphp
                             <td>{{ $answers[$i] }}</td>
                         @endfor
+                        <td>{{ $total_num / 5 }}</td>
                     </tr>
                 @endforeach
                 <tr>
@@ -131,97 +139,6 @@
             </table>
         </div>
 
-        <div class="block">
-            <div>アンケート２の回答</div>
-            <table>
-                <tr>
-                    <th>名前</th>
-                    <th>Q1:⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎</th>
-                    <th>Q2:⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎</th>
-                    <th>Q3:⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎</th>
-                    <th>Q4:⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎</th>
-                    <th>Q5:⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎</th>
-                </tr>
-                @php
-                    $totalAnswers2 = ['1' => 0, '2' => 0, '3' => 0, '4' => 0, '5' => 0];
-                    $countAnswers2 = ['1' => 0, '2' => 0, '3' => 0, '4' => 0, '5' => 0];
-                @endphp
-                @foreach ($users as $user)
-                    <tr>
-                        <td>{{ $user->name }}</td>
-                        @php
-                            // 質問番号ごとに回答を格納するための配列を初期化
-                            $answers = ['1' => '', '2' => '', '3' => '', '4' => '', '5' => ''];
-                        @endphp
-                        @foreach ($user->surveyResponses as $data)
-                            @if ($data->survey_type == 'survey2')
-                                @php
-                                    // 質問番号ごとに回答を格納
-                                    $answers[$data->question_number] = $data->answer;
-                                    $totalAnswers2[$data->question_number] += $data->answer;
-                                    $countAnswers2[$data->question_number]++;
-                                @endphp
-                            @endif
-                        @endforeach
-                        @for ($i = 1; $i <= 5; $i++)
-                            <td>{{ $answers[$i] }}</td>
-                        @endfor
-                    </tr>
-                @endforeach
-                <tr>
-                    <td>平均</td>
-                    @for ($i = 1; $i <= 5; $i++)
-                        <td>{{ $countAnswers2[$i] > 0 ? $totalAnswers2[$i] / $countAnswers2[$i] : 0 }}</td>
-                    @endfor
-                </tr>
-            </table>
-        </div>
-
-        <div>
-            <div>アンケート3の回答</div>
-            <table>
-                <tr>
-                    <th>名前</th>
-                    <th>Q1:⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎</th>
-                    <th>Q2:⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎</th>
-                    <th>Q3:⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎</th>
-                    <th>Q4:⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎</th>
-                    <th>Q5:⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎⚪︎</th>
-                </tr>
-                @php
-                    $totalAnswers3 = ['1' => 0, '2' => 0, '3' => 0, '4' => 0, '5' => 0];
-                    $countAnswers3 = ['1' => 0, '2' => 0, '3' => 0, '4' => 0, '5' => 0];
-                @endphp
-                @foreach ($users as $user)
-                    <tr>
-                        <td>{{ $user->name }}</td>
-                        @php
-                            // 質問番号ごとに回答を格納するための配列を初期化
-                            $answers = ['1' => '', '2' => '', '3' => '', '4' => '', '5' => ''];
-                        @endphp
-                        @foreach ($user->surveyResponses as $data)
-                            @if ($data->survey_type == 'survey3')
-                                @php
-                                    // 質問番号ごとに回答を格納
-                                    $answers[$data->question_number] = $data->answer;
-                                    $totalAnswers3[$data->question_number] += $data->answer;
-                                    $countAnswers3[$data->question_number]++;
-                                @endphp
-                            @endif
-                        @endforeach
-                        @for ($i = 1; $i <= 5; $i++)
-                            <td>{{ $answers[$i] }}</td>
-                        @endfor
-                    </tr>
-                @endforeach
-                <tr>
-                    <td>平均</td>
-                    @for ($i = 1; $i <= 5; $i++)
-                        <td>{{ $countAnswers3[$i] > 0 ? $totalAnswers3[$i] / $countAnswers3[$i] : 0 }}</td>
-                    @endfor
-                </tr>
-            </table>
-        </div>
     </div>
 </body>
 
