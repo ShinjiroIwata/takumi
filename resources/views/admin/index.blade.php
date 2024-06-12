@@ -66,6 +66,23 @@
                 </tr>
             @endforeach
         </table>
+        <table>
+            <tr>
+                <th>名前</th>
+                <th>アンケート１</th>
+                <th>アンケート２</th>
+            </tr>
+            @foreach ($users as $user)
+                <tr>
+                    <td>
+                        {{ $user->name }}
+                    </td>
+                    @foreach ($user->surveyResponses as $data)
+                        <td>{{ $data }}</td>
+                    @endforeach
+                </tr>
+            @endforeach
+        </table>
     </div>
 </body>
 
