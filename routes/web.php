@@ -36,5 +36,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/ancate1/store', [AncateController::class, 'ancate1store'])->name('ancate.store');
     Route::get('/ancate2', [AncateController::class, 'ancate2'])->name('ancate2.index');
     Route::post('/ancate2/store', [AncateController::class, 'ancate2store'])->name('ancate2.store');
+    Route::get('/ancate3', [AncateController::class, 'ancate3'])->name('ancate3.index');
+    Route::post('/ancate3/store', [AncateController::class, 'ancate3store'])->name('ancate3.store');
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 });
