@@ -274,18 +274,23 @@
             $user_num = 0;
         @endphp
         @foreach ($users as $user)
-            @foreach ($user->surveyResponses as $data)
-                @php
-                    if (
-                        $user->surveyResponses->contains('survey_type', 'survey1') &&
-                        $user->surveyResponses->contains('survey_type', 'survey2') &&
-                        $user->surveyResponses->contains('survey_type', 'survey3')
-                    ) {
-                        $user_num += 1;
-                        $total_answer += $data->answer;
-                    }
-                @endphp
-            @endforeach
+            @if (
+                $user->surveyResponses->contains('survey_type', 'survey1') &&
+                    $user->surveyResponses->contains('survey_type', 'survey2') &&
+                    $user->surveyResponses->contains('survey_type', 'survey3'))
+                @foreach ($user->surveyResponses as $data)
+                    @php
+                        if (
+                            $user->surveyResponses->contains('survey_type', 'survey1') &&
+                            $user->surveyResponses->contains('survey_type', 'survey2') &&
+                            $user->surveyResponses->contains('survey_type', 'survey3')
+                        ) {
+                            $user_num += 1;
+                            $total_answer += $data->answer;
+                        }
+                    @endphp
+                @endforeach
+            @endif
         @endforeach
         {{ $total_answer / $user_num }}
 
