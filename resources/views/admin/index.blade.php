@@ -28,20 +28,31 @@
                     @endif
                 </td>
                 <td>
-                    <form action="{{ route('admin.send') }}" method="POST">
-                        @csrf
-                        <input type="hidden" name="line_id" value='{{ $user->line_id }}'>
-                        <input type="hidden" name="ancate_type" value="1">
-                        <button>アンケート１を送る</button>
-                    </form>
+
+                    @if ($user->surveyResponses->contains('survey_type', 'survey1'))
+                        回答済み
+                    @else
+                        <form action="{{ route('admin.send') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="line_id" value='{{ $user->line_id }}'>
+                            <input type="hidden" name="ancate_type" value="1">
+                            <button>アンケート１を送る</button>
+                        </form>
+                    @endif
                 </td>
                 <td>
-                    <form action="{{ route('admin.send') }}" method="POST">
-                        @csrf
-                        <input type="hidden" name="line_id" value='{{ $user->line_id }}'>
-                        <input type="hidden" name="ancate_type" value="1">
-                        <button>アンケート2を送る</button>
-                    </form>
+
+                    @if ($user->surveyResponses->contains('survey_type', 'survey2'))
+                        回答済み
+                    @else
+                        <form action="{{ route('admin.send') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="line_id" value='{{ $user->line_id }}'>
+                            <input type="hidden" name="ancate_type" value="1">
+                            <button>アンケート2を送る</button>
+                        </form>
+                    @endif
+
                 </td>
             </tr>
         @endforeach
