@@ -294,7 +294,7 @@
                 @endforeach
             @endif
         @endforeach
-        <div class="answer_sum">{{ ($total_answer / $user_num / 75) * 100 }}点</div>
+        <div class="answer_sum">{{ round(($total_answer / $user_num / 75) * 100) }}点/100点</div>
 
 
     </div>
