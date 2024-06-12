@@ -11,12 +11,14 @@ class LineMessagingController extends Controller
 {
     public function index()
     {
-        return view('admin.index');
+        $users = User::all();
+        return view('admin.index', compact('user'));
     }
     public function sendNotification(Request $request)
     {
         // 動的に変更できるように
         $ancateType = $request->ancate_type;
+        $userId = $request->line_id;
 
         $messageType = 'flex'; // メッセージタイプ（textまたはflex）をリクエストから取得
         $messageText = 'test'; // テキストメッセージ
@@ -81,20 +83,19 @@ class LineMessagingController extends Controller
             ];
         }
 
-        $users = User::all();
-        foreach ($users as $user) {
-            $userId = $user->line_id;
-            $response = $httpClient->post('https://api.line.me/v2/bot/message/push', [
-                'headers' => [
-                    'Authorization' => 'Bearer ' . $channelAccessToken,
-                    'Content-Type' => 'application/json',
-                ],
-                'json' => [
-                    'to' => $userId,
-                    'messages' => $message,
-                ],
-            ]);
-        }
+        // $users = User::all();
+        // foreach ($users as $user) {
+        $response = $httpClient->post('https://api.line.me/v2/bot/message/push', [
+            'headers' => [
+                'Authorization' => 'Bearer ' . $channelAccessToken,
+                'Content-Type' => 'application/json',
+            ],
+            'json' => [
+                'to' => $userId,
+                'messages' => $message,
+            ],
+        ]);
+        // }
 
 
         if ($response->getStatusCode() != 200) {
