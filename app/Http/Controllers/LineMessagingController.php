@@ -103,7 +103,7 @@ class LineMessagingController extends Controller
         }
 
         return $response->getStatusCode() == 200 ?
-            response()->json(['status' => 'success'], 200) :
+            to_route('ancate.index') :
             response()->json(['status' => 'error'], 500);
     }
 }
