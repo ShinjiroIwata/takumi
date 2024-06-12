@@ -77,6 +77,7 @@
                     <td>
                         {{ $user->name }}
                     </td>
+                    {{ $user->surveyResponses }}
                     @foreach ($user->surveyResponses as $data)
                         <td>{{ $data }}</td>
                     @endforeach
