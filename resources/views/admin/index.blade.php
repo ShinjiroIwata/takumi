@@ -21,6 +21,7 @@
             <tr>
                 <td>
                     {{ $user->name }}
+                    {{ $user->surveyResponses }}
                 </td>
                 <td>
                     <form action="{{ route('admin.send') }}" method="POST">
