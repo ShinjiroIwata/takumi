@@ -27,40 +27,48 @@ class LineMessagingController extends Controller
             ];
         } elseif ($messageType === 'flex') {
             $flexContent = [
-                'type' => 'bubble',
-                'body' => [
-                    'type' => 'box',
-                    'layout' => 'vertical',
-                    'contents' => [
+                "type" => "bubble",
+                "hero" => [
+                    "type" => "image",
+                    "url" => "https://developers-resource.landpress.line.me/fx/img/01_1_cafe.png",
+                    "size" => "full",
+                    "aspectRatio" => "20:13",
+                    "aspectMode" => "cover",
+                    "action" => [
+                        "type" => "uri",
+                        "uri" => "https://line.me/"
+                    ]
+                ],
+                "footer" => [
+                    "type" => "box",
+                    "layout" => "vertical",
+                    "spacing" => "sm",
+                    "contents" => [
                         [
-                            'type' => 'text',
-                            'text' => 'Hello, World!',
-                            'weight' => 'bold',
-                            'size' => 'xl'
+                            "type" => "button",
+                            "style" => "link",
+                            "height" => "sm",
+                            "action" => [
+                                "type" => "uri",
+                                "label" => "アンケートへ進む",
+                                "uri" => "https://takumi.webpromotion-business.site/"
+                            ]
                         ],
                         [
-                            'type' => 'box',
-                            'layout' => 'vertical',
-                            'margin' => 'lg',
-                            'spacing' => 'sm',
-                            'contents' => [
-                                [
-                                    'type' => 'text',
-                                    'text' => 'Line Flex Message Example',
-                                    'size' => 'sm',
-                                    'color' => '#AAAAAA',
-                                    'wrap' => true
-                                ]
-                            ]
+                            "type" => "box",
+                            "layout" => "vertical",
+                            "contents" => [],
+                            "margin" => "sm"
                         ]
-                    ]
+                    ],
+                    "flex" => 0
                 ]
             ];
 
             $message = [
                 [
                     'type' => 'flex',
-                    'altText' => 'This is a Flex Message',
+                    'altText' => 'アンケートのお願い',
                     'contents' => $flexContent,
                 ],
             ];
