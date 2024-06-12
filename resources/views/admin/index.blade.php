@@ -271,15 +271,23 @@
 
         @php
             $total_answer = 0;
+            $user_num = 0;
         @endphp
         @foreach ($users as $user)
             @foreach ($user->surveyResponses as $data)
                 @php
-                    $total_answer += $data->answer;
+                    if (
+                        $user->surveyResponses->contains('survey_type', 'survey1') &&
+                        $user->surveyResponses->contains('survey_type', 'survey2') &&
+                        $user->surveyResponses->contains('survey_type', 'survey3')
+                    ) {
+                        $user_num += 1;
+                        $total_answer += $data->answer;
+                    }
                 @endphp
             @endforeach
         @endforeach
-        {{ $total_answer }}
+        {{ $total_answer / $user_num }}
 
 
     </div>
