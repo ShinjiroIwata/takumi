@@ -12,7 +12,7 @@ class LineMessagingController extends Controller
     public function index()
     {
         $users = User::all();
-        return view('admin.index', compact('user'));
+        return view('admin.index', compact('users'));
     }
     public function sendNotification(Request $request)
     {
