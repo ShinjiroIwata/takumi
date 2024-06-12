@@ -31,7 +31,9 @@ Route::get('/send-line-notification', [LineMessagingController::class, 'sendNoti
 
 // ログインしたユーザーのみ
 Route::middleware(['auth'])->group(function () {
-    Route::get('/', [AncateController::class, 'index'])->name('ancate.index');
-    Route::post('/store', [AncateController::class, 'store'])->name('ancate.store');
+    Route::get('/ancate1', [AncateController::class, 'ancate1'])->name('ancate.index');
+    Route::post('/ancate1/store', [AncateController::class, 'ancate1store'])->name('ancate.store');
+    Route::get('/ancate2', [AncateController::class, 'ancate2'])->name('ancate2.index');
+    Route::post('/ancate2/store', [AncateController::class, 'ancate2store'])->name('ancate2.store');
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 });

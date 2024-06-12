@@ -11,6 +11,7 @@ class LineMessagingController extends Controller
 {
     public function sendNotification(Request $request)
     {
+        $ancateType = 1;
         $messageType = 'flex'; // メッセージタイプ（textまたはflex）をリクエストから取得
         $messageText = 'test'; // テキストメッセージ
         $httpClient = new Client();
@@ -51,7 +52,7 @@ class LineMessagingController extends Controller
                             "action" => [
                                 "type" => "uri",
                                 "label" => "アンケートへ進む",
-                                "uri" => "https://takumi.webpromotion-business.site/"
+                                "uri" => "https://takumi.webpromotion-business.site/ancate$ancateType"
                             ]
                         ],
                         [
